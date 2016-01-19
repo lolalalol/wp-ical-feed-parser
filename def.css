@@ -1,0 +1,57 @@
+.icalfeed {
+  position:relative;
+  overflow: hidden;
+  /*border:1px solid #f0f;*/
+  /*height:15.5em;*/
+  width:235px;
+  
+  padding:0;
+  /*background:#f00;*/
+}
+.icalfeed .pager {
+  text-align: center;
+}
+.icalfeed .pager span {
+  color:#ccc;
+  cursor: pointer;
+  margin:0 .2em;
+}
+.icalfeed .pager span:hover {
+  color:#eee;
+  cursor: pointer;    
+}
+.icalfeed .pager span.active {
+  color:#999;
+}
+.icalfeed ul {
+  padding:0; margin:0;
+  list-style: none;
+  position:relative;
+  
+  column-width: 235px; /* W3C */
+  -webkit-column-width: 235px; /* Safari & Chrome */
+  -moz-column-width: 235px; /* Firefox */
+  -ms-column-width: 235px; /* Internet Explorer */
+  -o-column-width: 235px; /* Opera */  
+  column-gap: 0;
+  -webkit-column-gap: 0; /* Safari & Chrome */
+  -moz-column-gap: 0; /* Firefox */
+  -ms-column-gap: 0; /* Internet Explorer */
+  -o-column-gap: 0; /* Opera */  
+}
+.icalfeed li.hevent {
+  margin:0 0em .5em 0;
+  padding:0!important;
+  width:233px;
+  overflow:hidden;
+  border:1px solid transparent!important;
+  list-style: none;
+}
+.icalfeed li.hevent p {
+  margin:0;
+  padding:0;
+}
+
+#mpcth_main .icalfeed ul li:before, #mpcth_main .icalfeed ul li:after  {
+  display:none;
+}
