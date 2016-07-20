@@ -80,7 +80,7 @@ class ICal
     private function cleanCache() {
       if ($dir = opendir($this->cache_dir)) {
         while ($file = readdir($dir)) {
-          if (substr($file, -6) == '.cache' && ((filemtime($this->cache_dir . '/' . $file) + $cache_expire) < time()) ) {
+          if (substr($file, -6) == '.cache' && ((filemtime($this->cache_dir . '/' . $file) + $this->cache_expire) < time()) ) {
             unlink($this->cache_dir . '/' . $file);
           }
         }
@@ -98,7 +98,7 @@ class ICal
 //          'yearMonthOfRequest' => date('Ym')
         )));
         $file = $this->cache_dir . '/' . $reqhash . '.cache';
-        if (!file_exists($file)) {
+        if ( !file_exists($file) || ((filemtime($file) + $this->cache_expire) <= time()) ) {
           $response = file_get_contents($uri);
           $fstream = fopen($file, "w");
           @fwrite($fstream, $response);
@@ -111,7 +111,7 @@ class ICal
           }*/
         }
       }
-      return false;
+      return file_get_contents($uri);
     } 
 
     /**
